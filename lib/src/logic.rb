@@ -50,7 +50,7 @@ DAYS_IMPROVEMENT_COEFFICENT_RATIO = 140
 
 
 def day_passed
-  action_taken(action)
+  action_taken("day_passed")
 
   passed_days += 1
 end
