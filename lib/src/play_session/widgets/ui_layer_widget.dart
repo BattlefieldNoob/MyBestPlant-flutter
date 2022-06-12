@@ -10,24 +10,62 @@ class UILayerWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        SizedBox(height: 80, child: Container(color: Color(0xFFEFF7EB))),
+        SizedBox(
+            height: 80,
+            child: Container(
+              color: Color(0xFFEFF7EB),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Text.rich(
+                        TextSpan(text: "Welcome,\n", children: <TextSpan>[
+                      new TextSpan(
+                          text: 'Plant Lover',
+                          style: new TextStyle(fontWeight: FontWeight.bold)),
+                    ])),
+                  ),
+                  Spacer(),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Text(
+                        "Day,\n 01",
+                        textAlign: TextAlign.center,
+                      ))
+                ],
+              ),
+            )),
         Spacer(),
         SizedBox(
-            height: 100,
+            height: 120,
             child: Container(
               child: Row(children: [
                 Spacer(),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
+                BottomScreenButtonWidget(
+                    iconWidget: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Image.asset(
+                          'assets/images/parasite.png',
+                          scale: 2,
+                        ))),
                 Spacer(),
-                BottomScreenButtonWidget(),
+                BottomScreenButtonWidget(
+                    iconWidget: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Image.asset(
+                    'assets/images/watering_can.png',
+                    scale: 1.2,
+                  ),
+                )),
                 Spacer(),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
+                BottomScreenButtonWidget(
+                    iconWidget: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Image.asset(
+                    'assets/images/concime.png',
+                    scale: 2,
+                  ),
+                )),
                 Spacer()
               ]),
             )),
@@ -37,20 +75,23 @@ class UILayerWidget extends StatelessWidget {
 }
 
 class BottomScreenButtonWidget extends StatelessWidget {
+  final Widget iconWidget;
+  final Function()? onPressed;
+
   const BottomScreenButtonWidget({
     Key? key,
+    required this.iconWidget,
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: null,
+        onPressed: onPressed,
         style: ButtonStyle(
+            elevation: MaterialStateProperty.all(2),
             backgroundColor: MaterialStateProperty.all(Color(0xFFEFF7EB)),
             shape: MaterialStateProperty.all(CircleBorder())),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Icon(Icons.elderly),
-        ));
+        child: iconWidget);
   }
 }
