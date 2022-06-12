@@ -14,7 +14,6 @@ class UILayerWidget extends StatelessWidget {
             height: 80,
             child: Container(
               color: Colors.blue,
-              child: LinearProgressIndicator(),
             )),
         Spacer(),
         SizedBox(

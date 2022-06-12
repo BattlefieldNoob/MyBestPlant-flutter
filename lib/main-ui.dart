@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:game_template/src/play_session/gameplay_widget.dart';
+import 'package:game_template/src/providers/plant_info_change_notifier.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
@@ -204,6 +205,11 @@ class MyApp extends StatelessWidget {
               return progress;
             },
           ),
+          ChangeNotifierProvider(
+            create: (context) {
+              return PlantInfoChangeNotifier();
+            },
+          ),
           Provider<GamesServicesController?>.value(
               value: gamesServicesController),
           Provider<AdsController?>.value(value: adsController),
@@ -233,6 +239,9 @@ class MyApp extends StatelessWidget {
           Provider(
             create: (context) => Palette(),
           ),
+          Provider(
+            create: (context) => 0.56,
+          )
         ],
         child: Builder(builder: (context) {
           final palette = context.watch<Palette>();
