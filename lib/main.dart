@@ -6,6 +6,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:game_template/src/play_session/gameplay_widget.dart';
 import 'package:game_template/src/providers/plant_info_change_notifier.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
@@ -31,7 +32,6 @@ import 'src/settings/settings.dart';
 import 'src/settings/settings_screen.dart';
 import 'src/style/my_transition.dart';
 import 'src/style/palette.dart';
-import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 
 Future<void> main() async {
@@ -239,26 +239,15 @@ class MyApp extends StatelessWidget {
           Provider(
             create: (context) => Palette(),
           ),
+          Provider(
+            create: (context) => 0.56,
+          )
         ],
         child: Builder(builder: (context) {
           final palette = context.watch<Palette>();
 
-          return MaterialApp.router(
-            title: 'Flutter Demo',
-            theme: ThemeData.from(
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: palette.darkPen,
-                background: palette.backgroundMain,
-              ),
-              textTheme: TextTheme(
-                bodyText2: TextStyle(
-                  color: palette.ink,
-                ),
-              ),
-            ),
-            routeInformationParser: _router.routeInformationParser,
-            routerDelegate: _router.routerDelegate,
-            scaffoldMessengerKey: scaffoldMessengerKey,
+          return MaterialApp(
+            home: Scaffold(body: GameplayWidget()),
           );
         }),
       ),

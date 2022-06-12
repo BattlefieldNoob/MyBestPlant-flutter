@@ -14,9 +14,14 @@ class PlantLayerWidget extends StatelessWidget {
       Flexible(child: Container(), flex: 1),
       Flexible(
         child: Container(
-          color: Colors.green,
-          child: Center(
-            child: PlantInfoGridWidget(),
+          //color: Colors.green,
+          child: Stack(
+            children: [
+              Image.asset('assets/images/plant.png'),
+              Center(
+                child: PlantInfoGridWidget(),
+              )
+            ],
           ),
         ),
         flex: 4,

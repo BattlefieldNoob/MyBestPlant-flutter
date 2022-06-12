@@ -10,16 +10,11 @@ class UILayerWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        SizedBox(
-            height: 80,
-            child: Container(
-              color: Colors.blue,
-            )),
+        SizedBox(height: 80, child: Container(color: Color(0xFFEFF7EB))),
         Spacer(),
         SizedBox(
             height: 100,
             child: Container(
-              color: Colors.blue,
               child: Row(children: [
                 Spacer(),
                 Image.asset(
@@ -27,10 +22,7 @@ class UILayerWidget extends StatelessWidget {
                   semanticLabel: 'Settings',
                 ),
                 Spacer(),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
+                BottomScreenButtonWidget(),
                 Spacer(),
                 Image.asset(
                   'assets/images/settings.png',
@@ -41,5 +33,24 @@ class UILayerWidget extends StatelessWidget {
             )),
       ],
     );
+  }
+}
+
+class BottomScreenButtonWidget extends StatelessWidget {
+  const BottomScreenButtonWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: null,
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Color(0xFFEFF7EB)),
+            shape: MaterialStateProperty.all(CircleBorder())),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Icon(Icons.elderly),
+        ));
   }
 }
