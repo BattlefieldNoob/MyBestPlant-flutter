@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_template/src/providers/day_notifier.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/plant_info_change_notifier.dart';
@@ -18,6 +19,7 @@ class PlantLayerWidget extends StatelessWidget {
           child: Stack(
             children: [
               Image.asset('assets/images/plant.png'),
+              Text('Days: ${context.watch<PlantInfoChangeNotifier>().passedDays}'),
               Center(
                 child: PlantInfoGridWidget(),
               )
