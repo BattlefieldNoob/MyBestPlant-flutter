@@ -17,7 +17,10 @@ class PlantLayerWidget extends StatelessWidget {
           //color: Colors.green,
           child: Stack(
             children: [
-              Image.asset('assets/images/plant.png'),
+              Padding(
+                padding: const EdgeInsets.all(48.0),
+                child: Image.asset('assets/images/plant.png'),
+              ),
               Center(
                 child: PlantInfoGridWidget(),
               )
@@ -80,6 +83,8 @@ class PlantInfoProgressWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lerpValue = ((-0.8 + value) * 10).clamp(0.0, 1.0);
+    final color = Color.lerp(Color(0xFFF2D0A4), Color(0xFFA43039), lerpValue);
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
@@ -88,8 +93,12 @@ class PlantInfoProgressWidget extends StatelessWidget {
             children: [
               Text(name),
               SizedBox(
-                height: 32,
-                child: LinearProgressIndicator(value: value),
+                height: 28,
+                child: LinearProgressIndicator(
+                  value: value,
+                  color: color,
+                  backgroundColor: Color(0xFFFEEECCC),
+                ),
               )
             ],
           ),
