@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:game_template/src/play_session/gameplay_widget.dart';
+import 'package:game_template/src/providers/day_notifier.dart';
 import 'package:game_template/src/providers/plant_info_change_notifier.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
@@ -207,7 +208,9 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider(
             create: (context) {
-              return PlantInfoChangeNotifier();
+              var plantNotifier = PlantInfoChangeNotifier();
+              plantNotifier.init();
+              return plantNotifier;
             },
           ),
           Provider<GamesServicesController?>.value(
