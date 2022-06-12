@@ -91,7 +91,10 @@ class PlantInfoProgressWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(name),
+              Text(
+                name,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
               SizedBox(
                 height: 28,
                 child: LinearProgressIndicator(
