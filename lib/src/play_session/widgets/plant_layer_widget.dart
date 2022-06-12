@@ -10,9 +10,12 @@ class PlantLayerWidget extends StatelessWidget {
     return Flex(direction: Axis.vertical, children: [
       Flexible(child: Container(), flex: 1),
       Flexible(
-        child: Container(color: Colors.green),
+        child: Container(
+          color: Colors.green,
+        ),
         flex: 4,
       ),
+      Flexible(child: Container(), flex: 1),
     ]);
   }
 }

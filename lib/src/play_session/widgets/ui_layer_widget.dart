@@ -18,46 +18,26 @@ class UILayerWidget extends StatelessWidget {
             )),
         Spacer(),
         SizedBox(
-            height: 160,
+            height: 100,
             child: Container(
               color: Colors.blue,
-              child: Wrap(direction: Axis.horizontal, spacing: 20, children: [
+              child: Row(children: [
+                Spacer(),
                 Image.asset(
                   'assets/images/settings.png',
                   semanticLabel: 'Settings',
                 ),
+                Spacer(),
                 Image.asset(
                   'assets/images/settings.png',
                   semanticLabel: 'Settings',
                 ),
+                Spacer(),
                 Image.asset(
                   'assets/images/settings.png',
                   semanticLabel: 'Settings',
                 ),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
-                Image.asset(
-                  'assets/images/settings.png',
-                  semanticLabel: 'Settings',
-                ),
+                Spacer()
               ]),
             )),
       ],
