@@ -72,11 +72,7 @@ void guardedMain() {
   WidgetsFlutterBinding.ensureInitialized();
 
   _log.info('Going full screen');
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemStatusBarContrastEnforced: false));
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
   // TODO: When ready, uncomment the following lines to enable integrations.
   //       Read the README for more info on each integration.
