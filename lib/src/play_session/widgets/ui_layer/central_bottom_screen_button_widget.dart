@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_best_plant/src/play_session/widgets/ui_layer/round_screen_button_widget.dart';
 
 class CentralBottomScreenButtonWidget extends StatelessWidget {
   final Widget iconWidget;
@@ -14,19 +15,14 @@ class CentralBottomScreenButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-          elevation: MaterialStateProperty.all(2),
-          backgroundColor: MaterialStateProperty.all(Color(0xFFEFF7EB)),
-          shape: MaterialStateProperty.all(CircleBorder())),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          iconWidget,
-          Text(name, style: TextStyle(fontSize: 16, color: Colors.black))
-        ]),
-      ),
-    );
+    return RoundScreenButtonWidget(
+        onPressed: onPressed,
+        iconWidget: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            iconWidget,
+            Text(name, style: TextStyle(fontSize: 16, color: Colors.black))
+          ]),
+        ));
   }
 }

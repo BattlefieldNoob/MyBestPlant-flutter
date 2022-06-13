@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'round_screen_button_widget.dart';
+
 class BottomScreenButtonWidget extends StatelessWidget {
   final Widget iconWidget;
   final Function()? onPressed;
@@ -17,13 +19,8 @@ class BottomScreenButtonWidget extends StatelessWidget {
     return Column(mainAxisSize: MainAxisSize.min, children: [
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-            onPressed: onPressed,
-            style: ButtonStyle(
-                elevation: MaterialStateProperty.all(2),
-                backgroundColor: MaterialStateProperty.all(Color(0xFFEFF7EB)),
-                shape: MaterialStateProperty.all(CircleBorder())),
-            child: iconWidget),
+        child: RoundScreenButtonWidget(
+            onPressed: onPressed, iconWidget: iconWidget),
       ),
       Text(name, style: TextStyle(fontSize: 16))
     ]);
